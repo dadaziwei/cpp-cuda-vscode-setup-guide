@@ -1,0 +1,22 @@
+CompileFlags:
+  CompilationDatabase: out/build/default
+  Add:
+    - -IC:/Program Files/Microsoft Visual Studio/2022/Community/VC/Tools/MSVC/14.44.35207/include
+    - -IC:/Program Files (x86)/Windows Kits/10/Include/10.0.26100.0/ucrt
+    - -IC:/Program Files (x86)/Windows Kits/10/Include/10.0.26100.0/shared
+    - -IC:/Program Files (x86)/Windows Kits/10/Include/10.0.26100.0/um
+    - -IC:/Program Files (x86)/Windows Kits/10/Include/10.0.26100.0/winrt
+  Remove:
+    - -forward-unknown-to-host-compiler
+    - --generate-code*
+    - -rdc=true
+
+---
+
+If:
+  PathMatch: .*\.(cu|cuh)$
+CompileFlags:
+  Add:
+    - -xcuda
+    - --cuda-path=C:/Program Files/NVIDIA GPU Computing Toolkit/CUDA/v12.8
+    - --cuda-gpu-arch=sm_89
